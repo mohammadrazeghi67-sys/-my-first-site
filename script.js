@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("hello-btn");
   const msg = document.getElementById("msg");
 
-  const API = "https://YOUR-SERVICE.onrender.com"; //my-first-api-ehsr.onrender.com
+  const API = "https://my-first-api-ehsr.onrender.com"; // آدرس خودت
 
   btn.addEventListener("click", async () => {
     msg.textContent = "در حال گرفتن زمان از سرور...";
