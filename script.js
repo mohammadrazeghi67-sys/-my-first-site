@@ -16,3 +16,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+const echoBtn = document.getElementById("echo-btn");
+const echoMsg = document.getElementById("echo-msg");
+
+echoBtn.addEventListener("click", async () => {
+  echoMsg.textContent = "در حال ارسال...";
+  try {
+    const res = await fetch(`${API}/echo`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: "Mohammad", skill: "Web" })
+    });
+    if (!res.ok) throw new Error("Status " + res.status);
+    const data = await res.json();
+    echoMsg.textContent = "سرور برگردوند: " + JSON.stringify(data.youSent);
+  } catch (e) {
+    echoMsg.textContent = "خطا: " + e.message;
+  }
+});
